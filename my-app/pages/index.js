@@ -173,9 +173,9 @@ export default function Home() {
     const web3Provider = new providers.Web3Provider(provider);
 
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 4) {
-      window.alert("Please switch to the Rinkeby network!");
-      throw new Error("Please switch to the Rinkeby network");
+    if (chainId !== 80001) {
+      window.alert("Please switch to the Polgon Mumbai network!");
+      throw new Error("Please switch to the Polgon Mumbai network");
     }
 
     if (needSigner) {
@@ -213,7 +213,7 @@ export default function Home() {
   useEffect(() => {
     if (!walletConnected) {
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
+        network: "mumbai",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -287,9 +287,7 @@ export default function Home() {
       );
     } else if (proposals.length === 0) {
       return (
-        <div className={styles.description}>
-          No proposals have been created
-        </div>
+        <div className={styles.description}>No proposals have been created</div>
       );
     } else {
       return (
